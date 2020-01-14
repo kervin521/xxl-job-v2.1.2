@@ -1,11 +1,11 @@
-FROM openjdk:8-jdk-alpine
-MAINTAINER xuxueli
+FROM openjdk:8-jre
 
-ENV XXL_JOB_LOG_ENABLED "true"
-ENV XXL_JOB_IP_AUTO "true"
+MAINTAINER ZhangYi
+ENV XXL_JOB_LOG_ENABLED="true"
+ENV XXL_JOB_IP_AUTO="true"
 
-#ENV TZ=PRC
-#RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+ARG APP_VERSION
+ENV APP_VERSION=${APP_VERSION:-v2.1.0}
 
 ADD target/xxl-job-admin-*.jar /xxl-job-admin.jar
 
